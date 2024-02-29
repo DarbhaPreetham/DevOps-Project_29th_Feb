@@ -41,6 +41,7 @@ resource "aws_iam_instance_profile" "ec2-profile" {
 }
 
 resource "aws_security_group" "maingroup" {
+    vpc_id = "vpc-07b0fdce96d97a8e2"
     egress = [
         {
             cidr_blocks = ["0.0.0.0/0"]
