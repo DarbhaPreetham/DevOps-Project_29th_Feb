@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
         source = "hashicorp/aws"
-        version = "~> 5.0"
+        version = "~> 4.0"
     }
   }
   backend "s3" {
@@ -20,6 +20,7 @@ resource "aws_instance" "server" {
     key_name = aws_key_pair.deployment.key_name 
     vpc_security_group_ids = [aws_security_group.maingroup.id]
     iam_instance_profile = aws_iam_instance_profile.ec2-profile.name
+    
     connection {
       type = "ssh"
       host = self.public_ip
@@ -54,17 +55,6 @@ resource "aws_security_group" "maingroup" {
         }
     ]
     ingress = [
-         {
-            cidr_blocks = ["0.0.0.0/0"]
-            description = ""
-            from_port = 0
-            ipv6_cidr_blocks = []
-            prefix_list_ids = []
-            protocol = "-1"
-            security_groups = []
-            self = false
-            to_port = 0
-        },
 
          {
             cidr_blocks = ["0.0.0.0/0",]
