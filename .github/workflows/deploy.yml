@@ -10,7 +10,8 @@ env:
     SSH_KEY_PRIVATE: ${{ secrets.AWS_SSH_KEY_PRIVATE }}
     SSH_KEY_PUBLIC: ${{ secrets.AWS_SSH_KEY_PUBLIC }}
     TF_STATE_BUCKET_NAME: ${{ secrets.AWS_TF_STATE_BUCKET_NAME }}
-    AWS_REGION: us-east-1
+    AWS_REGION: us-east-1 
+    
 
 jobs:
     deploy-infra:
